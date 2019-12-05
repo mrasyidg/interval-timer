@@ -31,19 +31,20 @@
         app:srcCompat="@drawable/ic_stop" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_pause"
+        android:id="@+id/fab_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_margin="@dimen/fab_bigger_margin"
-        app:srcCompat="@drawable/ic_pause" />
+        app:srcCompat="@drawable/ic_start" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_start"
+        android:id="@+id/fab_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="@dimen/fab_bigger_margin"
-        app:srcCompat="@drawable/ic_start" />
+        app:srcCompat="@drawable/ic_pause" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
