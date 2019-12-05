@@ -2,19 +2,16 @@ package com.example.intervaltimerapp
 
 import android.os.Bundle
 import android.os.CountDownTimer
-
-
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import java.util.*
-
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.example.intervaltimerapp.R
+import com.example.intervaltimerapp.util.NotificationUtil
 import com.example.intervaltimerapp.util.PrefUtil
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -89,7 +86,7 @@ class HomeActivity : AppCompatActivity() {
         initTimer()
 
         removeAlarm(this)
-        //TODO: remove background timer, hide notification
+        NotificationUtil.hideTimerNotification(this)
     }
 
     override fun onPause() {
@@ -98,10 +95,10 @@ class HomeActivity : AppCompatActivity() {
         if (timerState == TimerState.Running){
             timer.cancel()
             val wakeUpTime = setAlarm(this, nowSeconds, secondsRemaining)
-            //TODO: start background timer and show notification
+            NotificationUtil.showTimerRunning(this, wakeUpTime)
         }
         else if (timerState == TimerState.Paused){
-            //TODO: show notification
+            NotificationUtil.showTimerPaused(this)
         }
 
         PrefUtil.setPreviousTimerLengthSeconds(timerLengthSeconds, this)
@@ -204,7 +201,6 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

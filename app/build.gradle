@@ -41,4 +41,5 @@ dependencies {
     implementation "androidx.legacy:legacy-preference-v14:1.0.0"
     implementation "androidx.preference:preference:1.0.0"
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0-rc01"
+    implementation "com.android.support:support-core-utils:29.0.0"
 }
