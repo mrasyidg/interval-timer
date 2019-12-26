@@ -36,16 +36,18 @@ class NotificationUtil {
             val startPendingIntent = PendingIntent.getBroadcast(context,
                 0, startIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            val notificationBuilder = getBasicNotificationotificationBuilder(context, CHANNEL_ID_TIMER, true)
+            val notificationBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER, true)
             notificationBuilder.setContentTitle("Timer Expired!")
                 .setContentText("Start again?")
                 .setContentIntent(getPendingIntentWithStack(context, HomeActivity::class.java))
                 .addAction(R.drawable.ic_start, "Start", startPendingIntent)
+                .setColorized(true)
+                .setColor(204102153)
 
-            val nManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            nManager.createNotificationChannel(CHANNEL_ID_TIMER, CHANNEL_NAME_TIMER, true)
+            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(CHANNEL_ID_TIMER, CHANNEL_NAME_TIMER, true)
 
-            nManager.notify(TIMER_ID, notificationBuilder.build())
+            notificationManager.notify(TIMER_ID, notificationBuilder.build())
         }
 
         @TargetApi(16)
@@ -62,13 +64,15 @@ class NotificationUtil {
 
             val df = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT)
 
-            val notificationBuilder = getBasicNotificationotificationBuilder(context, CHANNEL_ID_TIMER, true)
+            val notificationBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER, true)
             notificationBuilder.setContentTitle("Timer is Running.")
                 .setContentText("End: ${df.format(Date(wakeUpTime))}")
                 .setContentIntent(getPendingIntentWithStack(context, HomeActivity::class.java))
                 .setOngoing(true)
                 .addAction(R.drawable.ic_stop, "Stop", stopPendingIntent)
                 .addAction(R.drawable.ic_pause, "Pause", pausePendingIntent)
+                .setColor(204102153)
+                .setColorized(true)
 
             val nManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             nManager.createNotificationChannel(CHANNEL_ID_TIMER, CHANNEL_NAME_TIMER, true)
@@ -83,12 +87,14 @@ class NotificationUtil {
             val resumePendingIntent = PendingIntent.getBroadcast(context,
                 0, resumeIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            val notificationBuilder = getBasicNotificationotificationBuilder(context, CHANNEL_ID_TIMER, true)
+            val notificationBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER, true)
             notificationBuilder.setContentTitle("Timer is paused.")
                 .setContentText("Resume?")
                 .setContentIntent(getPendingIntentWithStack(context, HomeActivity::class.java))
                 .setOngoing(true)
                 .addAction(R.drawable.ic_start, "Resume", resumePendingIntent)
+                .setColor(204102153)
+                .setColorized(true)
 
             val nManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             nManager.createNotificationChannel(CHANNEL_ID_TIMER, CHANNEL_NAME_TIMER, true)
@@ -101,13 +107,16 @@ class NotificationUtil {
             nManager.cancel(TIMER_ID)
         }
 
-        private fun getBasicNotificationotificationBuilder(context: Context, channelId: String, playSound: Boolean)
+        private fun getBasicNotificationBuilder(context: Context, channelId: String, playSound: Boolean)
                 : NotificationCompat.Builder{
             val notificationSound: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
             val notificationBuilder = NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.ic_timer)
                 .setAutoCancel(true)
                 .setDefaults(0)
+                .setColor(204102153)
+                .setColorized(true)
+            notificationBuilder.setColor(20410215)
             if (playSound) notificationBuilder.setSound(notificationSound)
             return notificationBuilder
         }
@@ -131,10 +140,10 @@ class NotificationUtil {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
                 val channelImportance = if (playSound) NotificationManager.IMPORTANCE_DEFAULT
                 else NotificationManager.IMPORTANCE_LOW
-                val nChannel = NotificationChannel(channelID, channelName, channelImportance)
-                nChannel.enableLights(true)
-                nChannel.lightColor = Color.BLUE
-                this.createNotificationChannel(nChannel)
+                val notificationChannel = NotificationChannel(channelID, channelName, channelImportance)
+                notificationChannel.enableLights(true)
+                notificationChannel.lightColor = Color.BLUE
+                this.createNotificationChannel(notificationChannel)
             }
         }
     }
