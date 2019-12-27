@@ -1,4 +1,4 @@
-package com.example.intervaltimerapp
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp
 
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,8 +11,11 @@ import java.util.*
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.example.intervaltimerapp.util.NotificationUtil
-import com.example.intervaltimerapp.util.PrefUtil
+import com.example.intervaltimerapp.R
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.receiver.TimerExpiredReceiver
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.NotificationUtil
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.PrefUtil
+import id.ac.ui.intervaltimerapp.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -51,7 +54,8 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var timer: CountDownTimer
     private var timerLengthSeconds: Long = 0
-    private var timerState = TimerState.Stopped
+    private var timerState =
+        TimerState.Stopped
     private var secondsRemaining: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,13 +67,15 @@ class HomeActivity : AppCompatActivity() {
 
         fab_start.setOnClickListener{v ->
             startTimer()
-            timerState =  TimerState.Running
+            timerState =
+                TimerState.Running
             updateButtons() // To disable other buttons
         }
 
         fab_pause.setOnClickListener { v ->
             timer.cancel()
-            timerState = TimerState.Paused
+            timerState =
+                TimerState.Paused
             updateButtons()
         }
 
@@ -85,7 +91,9 @@ class HomeActivity : AppCompatActivity() {
 
         initTimer()
 
-        removeAlarm(this)
+        removeAlarm(
+            this
+        )
         NotificationUtil.hideTimerNotification(this)
     }
 
@@ -94,7 +102,12 @@ class HomeActivity : AppCompatActivity() {
 
         if (timerState == TimerState.Running){
             timer.cancel()
-            val wakeUpTime = setAlarm(this, nowSeconds, secondsRemaining)
+            val wakeUpTime =
+                setAlarm(
+                    this,
+                    nowSeconds,
+                    secondsRemaining
+                )
             NotificationUtil.showTimerRunning(this, wakeUpTime)
         }
         else if (timerState == TimerState.Paused){
@@ -135,7 +148,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun onTimerFinished(){
-        timerState = TimerState.Stopped
+        timerState =
+            TimerState.Stopped
 
         //set the length of the timer to be the one set in SettingsActivity
         //if the length was changed when the timer was running
@@ -151,7 +165,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun startTimer(){
-        timerState = TimerState.Running
+        timerState =
+            TimerState.Running
 
         timer = object : CountDownTimer(secondsRemaining * 1000, 1000) {
             override fun onFinish() = onTimerFinished()

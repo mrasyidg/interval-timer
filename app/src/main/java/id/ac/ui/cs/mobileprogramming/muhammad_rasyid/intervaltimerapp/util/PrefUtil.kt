@@ -1,8 +1,8 @@
-package com.example.intervaltimerapp.util
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util
 
 import android.content.Context
 import android.preference.PreferenceManager
-import com.example.intervaltimerapp.HomeActivity
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.HomeActivity
 
 class PrefUtil {
     companion object {

@@ -1,10 +1,12 @@
-package com.example.intervaltimerapp
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.example.intervaltimerapp.util.NotificationUtil
-import com.example.intervaltimerapp.util.PrefUtil
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.AppConstants
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.HomeActivity
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.NotificationUtil
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.PrefUtil
 
 class TimerNotificationActionReceiver : BroadcastReceiver() {
 
@@ -12,7 +14,8 @@ class TimerNotificationActionReceiver : BroadcastReceiver() {
         when (intent.action){
             AppConstants.ACTION_STOP -> {
                 HomeActivity.removeAlarm(context)
-                PrefUtil.setTimerState(HomeActivity.TimerState.Stopped, context)
+                PrefUtil.setTimerState(
+                    HomeActivity.TimerState.Stopped, context)
                 NotificationUtil.hideTimerNotification(context)
             }
             AppConstants.ACTION_PAUSE -> {
@@ -24,20 +27,31 @@ class TimerNotificationActionReceiver : BroadcastReceiver() {
                 PrefUtil.setSecondsRemaining(secondsRemaining, context)
 
                 HomeActivity.removeAlarm(context)
-                PrefUtil.setTimerState(HomeActivity.TimerState.Paused, context)
+                PrefUtil.setTimerState(
+                    HomeActivity.TimerState.Paused, context)
                 NotificationUtil.showTimerPaused(context)
             }
             AppConstants.ACTION_RESUME -> {
                 val secondsRemaining = PrefUtil.getSecondsRemaining(context)
-                val wakeUpTime = HomeActivity.setAlarm(context, HomeActivity.nowSeconds, secondsRemaining)
-                PrefUtil.setTimerState(HomeActivity.TimerState.Running, context)
+                val wakeUpTime = HomeActivity.setAlarm(
+                    context,
+                    HomeActivity.nowSeconds,
+                    secondsRemaining
+                )
+                PrefUtil.setTimerState(
+                    HomeActivity.TimerState.Running, context)
                 NotificationUtil.showTimerRunning(context, wakeUpTime)
             }
             AppConstants.ACTION_START -> {
                 val minutesRemaining = PrefUtil.getTimerLength(context)
                 val secondsRemaining = minutesRemaining * 60L
-                val wakeUpTime = HomeActivity.setAlarm(context, HomeActivity.nowSeconds, secondsRemaining)
-                PrefUtil.setTimerState(HomeActivity.TimerState.Running, context)
+                val wakeUpTime = HomeActivity.setAlarm(
+                    context,
+                    HomeActivity.nowSeconds,
+                    secondsRemaining
+                )
+                PrefUtil.setTimerState(
+                    HomeActivity.TimerState.Running, context)
                 PrefUtil.setSecondsRemaining(secondsRemaining, context)
                 NotificationUtil.showTimerRunning(context, wakeUpTime)
             }

@@ -1,7 +1,9 @@
-package com.example.intervaltimerapp
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.intervaltimerapp.R
+import id.ac.ui.intervaltimerapp.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class SettingsActivity : AppCompatActivity() {
