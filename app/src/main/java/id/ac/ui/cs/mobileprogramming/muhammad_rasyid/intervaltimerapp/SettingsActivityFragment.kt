@@ -1,7 +1,8 @@
-package com.example.intervaltimerapp
+package id.example.intervaltimerapp
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
+import com.example.intervaltimerapp.R
 
 
 class SettingsActivityFragment : PreferenceFragmentCompat() {

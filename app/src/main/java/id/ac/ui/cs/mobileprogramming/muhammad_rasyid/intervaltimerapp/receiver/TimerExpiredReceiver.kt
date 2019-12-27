@@ -1,10 +1,11 @@
-package com.example.intervaltimerapp
+package id.example.intervaltimerapp.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.example.intervaltimerapp.util.NotificationUtil
-import com.example.intervaltimerapp.util.PrefUtil
+import id.example.intervaltimerapp.HomeActivity
+import id.example.intervaltimerapp.util.NotificationUtil
+import id.example.intervaltimerapp.util.PrefUtil
 
 class TimerExpiredReceiver : BroadcastReceiver() {
 
