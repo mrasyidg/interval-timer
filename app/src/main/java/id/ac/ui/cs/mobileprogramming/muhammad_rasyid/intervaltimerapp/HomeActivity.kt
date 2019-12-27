@@ -11,11 +11,11 @@ import java.util.*
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.example.intervaltimerapp.R
+import androidx.room.Room
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.database.AppDatabase
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.receiver.TimerExpiredReceiver
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.NotificationUtil
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.PrefUtil
-import id.ac.ui.intervaltimerapp.R
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -121,9 +121,6 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initTimer(){
         timerState = PrefUtil.getTimerState(this)
-
-        //we don't want to change the length of the timer which is already running
-        //if the length was changed in settings while it was backgrounded
         if (timerState == TimerState.Stopped)
             setNewTimerLength()
         else
@@ -150,9 +147,6 @@ class HomeActivity : AppCompatActivity() {
     private fun onTimerFinished(){
         timerState =
             TimerState.Stopped
-
-        //set the length of the timer to be the one set in SettingsActivity
-        //if the length was changed when the timer was running
         setNewTimerLength()
 
         progressbar.progress = 0
@@ -218,15 +212,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
                 val intent = Intent(this, SettingsActivity::class.java)
@@ -236,4 +226,6 @@ class HomeActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-}
+
+    val history_db = AppDatabase(this)
+    }

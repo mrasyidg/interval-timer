@@ -12,6 +12,12 @@ interface HistoryDao {
     @Query("SELECT * FROM history_content WHERE date LIKE :date")
     fun findByDate(date: String): LiveData<List<HistoryEntity>>
 
+    @Query("SELECT * FROM history_content WHERE history LIKE :history")
+    fun findByHistory(history: String): LiveData<List<HistoryEntity>>
+
+    @Query("SELECT * FROM history_content WHERE sets LIKE :sets")
+    fun findBySets(sets: String): LiveData<List<HistoryEntity>>
+
     @Insert
     fun insertAll(vararg date: HistoryEntity)
 
