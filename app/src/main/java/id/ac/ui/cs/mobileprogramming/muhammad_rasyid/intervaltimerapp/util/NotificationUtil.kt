@@ -1,4 +1,4 @@
-package id.example.intervaltimerapp.util
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util
 
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -12,10 +12,10 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import id.example.intervaltimerapp.AppConstants
-import id.example.intervaltimerapp.HomeActivity
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.AppConstants
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.HomeActivity
 import com.example.intervaltimerapp.R
-import id.example.intervaltimerapp.receiver.TimerNotificationActionReceiver
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.receiver.TimerNotificationActionReceiver
 import java.text.SimpleDateFormat
 import java.util.*
 

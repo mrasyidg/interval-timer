@@ -1,4 +1,4 @@
-package id.example.intervaltimerapp
+package id.ac.ui.intervaltimerapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package id.example.intervaltimerapp.model
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

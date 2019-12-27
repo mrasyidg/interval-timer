@@ -1,7 +1,7 @@
-package id.example.intervaltimerapp.dao
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.dao
 
 import androidx.room.*
-import id.example.intervaltimerapp.model.HistoryEntity
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.model.HistoryEntity
 
 @Dao
 interface HistoryDao {

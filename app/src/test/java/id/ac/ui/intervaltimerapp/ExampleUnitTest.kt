@@ -1,4 +1,4 @@
-package id.example.intervaltimerapp
+package id.ac.ui.intervaltimerapp
 
 import org.junit.Test
 
