@@ -22,7 +22,6 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class HomeActivity : AppCompatActivity() {
 
-    /* TimerState is a Class for */
     enum class TimerState{
         Stopped, Paused, Running
     }
@@ -227,5 +226,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    val history_db = AppDatabase(this)
+//    val history_db = AppDatabase(this)
+
     }
