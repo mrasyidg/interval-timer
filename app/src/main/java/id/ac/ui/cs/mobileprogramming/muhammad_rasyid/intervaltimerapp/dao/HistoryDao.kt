@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.model.HistoryEntity
 
@@ -9,7 +10,13 @@ interface HistoryDao {
     fun getAll(): List<HistoryEntity>
 
     @Query("SELECT * FROM history_content WHERE date LIKE :date")
-    fun findByTitle(date: String)
+    fun findByDate(date: String): LiveData<List<HistoryEntity>>
+
+    @Query("SELECT * FROM history_content WHERE history LIKE :history")
+    fun findByHistory(history: String): LiveData<List<HistoryEntity>>
+
+    @Query("SELECT * FROM history_content WHERE sets LIKE :sets")
+    fun findBySets(sets: String): LiveData<List<HistoryEntity>>
 
     @Insert
     fun insertAll(vararg date: HistoryEntity)
