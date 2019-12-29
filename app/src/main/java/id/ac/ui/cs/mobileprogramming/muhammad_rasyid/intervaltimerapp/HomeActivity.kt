@@ -225,7 +225,4 @@ class HomeActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-//    val history_db = AppDatabase(this)
-
-    }
+}
