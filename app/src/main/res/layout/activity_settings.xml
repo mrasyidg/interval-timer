@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.SettingsActivityFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.activity.SettingsActivityFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

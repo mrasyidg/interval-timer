@@ -3,8 +3,8 @@ package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.receiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.AppConstants
-import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.HomeActivity
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.constants.AppConstants
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.activity.HomeActivity
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.NotificationUtil
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.PrefUtil
 
