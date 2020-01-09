@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.constants
 
 class AppConstants{
     companion object {
