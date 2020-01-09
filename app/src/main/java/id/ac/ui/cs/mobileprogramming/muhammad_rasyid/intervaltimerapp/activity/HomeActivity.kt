@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp
+package id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.activity
 
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,8 +11,7 @@ import java.util.*
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import androidx.room.Room
-import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.database.AppDatabase
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.R
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.receiver.TimerExpiredReceiver
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.NotificationUtil
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.util.PrefUtil

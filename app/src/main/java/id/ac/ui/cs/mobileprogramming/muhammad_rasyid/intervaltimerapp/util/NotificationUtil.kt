@@ -12,8 +12,8 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.AppConstants
-import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.HomeActivity
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.constants.AppConstants
+import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.activity.HomeActivity
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.R
 import id.ac.ui.cs.mobileprogramming.muhammad_rasyid.intervaltimerapp.receiver.TimerNotificationActionReceiver
 import java.text.SimpleDateFormat
