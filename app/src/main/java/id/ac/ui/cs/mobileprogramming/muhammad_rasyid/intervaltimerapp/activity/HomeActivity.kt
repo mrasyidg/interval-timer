@@ -52,8 +52,7 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var timer: CountDownTimer
     private var timerLengthSeconds: Long = 0
-    private var timerState =
-        TimerState.Stopped
+    private var timerState = TimerState.Stopped
     private var secondsRemaining: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
