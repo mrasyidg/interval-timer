@@ -7,3 +7,5 @@ Wrote in Kotlin.
     License: Apache License, Version 2.0 (the "License") at http://www.apache.org/licenses/LICENSE-2.0.
 2. Pavelsikun - Source: https://github.com/MrBIMC/MaterialSeekBarPreference </br>
     License: Apache License, Version 2.0
+    
+Release date: TBD
